@@ -5,9 +5,9 @@ This is the first assignment for the course Internet of Things (IoT)
 Contributors: David B, Ivan C
 
 ### i. Test Humidity every few milliseconds
--- Setup bieber database
--- Setup cronjob
--- Insert into bieber database
+-- Setup bieber database<br>
+-- Setup cronjob<br>
+-- Insert into bieber database<br>
 --represent data using a web interface
 
 ### ii. Push Notifications
