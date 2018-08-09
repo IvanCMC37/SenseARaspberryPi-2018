@@ -15,3 +15,4 @@ Contributors: David B, Ivan C
 
 ### iii. Use Bluetooth to detect nearby devices
 -- Greet person whose device is reg with RP and display current temp
+test
