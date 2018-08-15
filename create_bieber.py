@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sqlite3 as lite
 import sys
 con = lite.connect('database.bieber')

@@ -1,10 +1,12 @@
-# In part one we will read temperature and humidity
-# We will record in the DB temperature, humidity, time of day and date
-
+#!/usr/bin/env python3
 from sense_hat import SenseHat
 from datetime import datetime
 import sqlite3 as lite
 import os, sys, time
+from time import sleep
+
+# In part one we will read temperature and humidity
+# We will record in the DB temperature, humidity, time of day and date
 
 # References to calibrate temp http://yaab-arduino.blogspot.com/2016/08/accurate-temperature-reading-sensehat.html
 # https://www.raspberrypi.org/forums/viewtopic.php?f=104&t=111457
@@ -14,7 +16,7 @@ def get_cpu_temp():
   return(t)
 
 # Writing to Database
-dbname='database.bieber'
+dbname='/home/pi/SenseARaspberryPi/database.bieber'
 sampleFreq = 1 # time in seconds
 
 # get data from SenseHat sensor
@@ -54,10 +56,16 @@ def displayData():
 
 # main function
 def main():
+    sense = SenseHat()
+    red = (255, 0, 0)
+    sense.clear(red)  # passing in an RGB tuple
+    
+
     for i in range (0,3):
         getSenseHatData()
         time.sleep(sampleFreq)
     displayData()
+    sense.clear()
 
 # Execute program 
 main()

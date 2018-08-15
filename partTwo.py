@@ -1,11 +1,12 @@
+#!/usr/bin/env python3
 from sense_hat import SenseHat
 import requests
 import json
 import os
-
+print("you started the script2")
 #Referencing from tute 4 - pushBullet example
 ACCESS_TOKENS = [["o.UPqDVIbmvEuNmjQiNg0IAVkFdFINeB34","Ivan"]]
-ACCESS_TOKENS.append(["o.814RKndb4upm5YdPrgIvLb6tm2WWxSpO","David"])
+#ACCESS_TOKENS.append(["o.814RKndb4upm5YdPrgIvLb6tm2WWxSpO","David"])
 Name_OF_PI = "Ivan's Pi"
 
 #create senseHat object to sense the temperature
@@ -35,7 +36,7 @@ print(body)
 
 #function to decide whether broadcast the message or not
 def pushBullet_broadcaster():
-    if temp >20:
+    if temp <30:
         for x in ACCESS_TOKENS:
             body = "Hey "+x[1]+", time to get your jacket!!! It's "+str(round(temp,1))+"*C outside."
             data_send = {"type": "note", "title": Name_OF_PI, "body": body}
