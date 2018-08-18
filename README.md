@@ -1,6 +1,6 @@
 # Sense A Raspberry Pi (Assignment 1)
 
-> This is the first assignment for the course Internet of Things (IoT) 2018 Semester 2
+> This is the first assignment for the course Internet of Things (IoT) 2018 Semester 2<br>
 __Contributors:__ `David B, Ivan C`
 
 ### i. Test Humidity every few milliseconds
