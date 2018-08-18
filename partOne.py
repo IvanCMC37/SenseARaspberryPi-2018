@@ -16,6 +16,7 @@ def get_cpu_temp():
   return(t)
 
 # Writing to Database
+# Table is datetime , temp , humidity
 dbname='/home/pi/SenseARaspberryPi/database.bieber'
 sampleFreq = 1 # time in seconds
 
@@ -49,7 +50,7 @@ def displayData():
     conn=lite.connect(dbname)
     curs=conn.cursor()
     print ("\nEntire database contents:\n")
-    print("DateTime     Temperature (C)    Humidity (%)")
+    print("DateTime   Temperature (C)   Humidity (%)")
     for row in curs.execute("SELECT * FROM SenseHat_data"):
         print (row)
     conn.close()
@@ -69,6 +70,3 @@ def main():
 
 # Execute program 
 main()
-
-
-#table is datetime , temp , humidity
