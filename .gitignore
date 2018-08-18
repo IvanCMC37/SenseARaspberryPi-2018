@@ -1,5 +1,6 @@
 # custom changes
 *.bieber
+known_devices.db
 
 
 # Byte-compiled / optimized / DLL files

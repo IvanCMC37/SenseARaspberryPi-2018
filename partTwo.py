@@ -6,7 +6,7 @@ import os
 print("you started the script2")
 #Referencing from tute 4 - pushBullet example
 ACCESS_TOKENS = [["o.UPqDVIbmvEuNmjQiNg0IAVkFdFINeB34","Ivan"]]
-#ACCESS_TOKENS.append(["o.814RKndb4upm5YdPrgIvLb6tm2WWxSpO","David"])
+ACCESS_TOKENS.append(["o.814RKndb4upm5YdPrgIvLb6tm2WWxSpO","David"])
 Name_OF_PI = "Ivan's Pi"
 
 #create senseHat object to sense the temperature
