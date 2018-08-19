@@ -34,11 +34,11 @@ def fetchTempData():
     curs.execute("SELECT temp FROM SenseHat_data")
     temps = curs.fetchall()
 
+    ytemps.clear()
     # assign data to related array & string formatting
     for t in temps:
         x =  str(t)
         temp = x[1:len(x)-2]
-        print(temp)
         ytemps.append(float(temp))
     
     # close the connection
@@ -54,12 +54,11 @@ def fetchHumidData():
     curs.execute("SELECT humidity FROM SenseHat_data")
     humids = curs.fetchall()
 
-    yhumids[:]
+    yhumids.clear()
     # assign data to related array & string formatting
     for h in humids:
         x =  str(h)
         humid = x[1:len(x)-2]
-        print(humid)
         yhumids.append(float(humid))
     
     # close the connection
@@ -75,11 +74,11 @@ def fetchTimeData():
     curs.execute("SELECT timestamp FROM SenseHat_data")
     dates = curs.fetchall()
 
+    xdates.clear()
     # assign data to related array
     for d in dates:
         x =  str(d)
         date = x[2:len(x)-3]
-        print(date)
         xdates.append(date)
     
     # close the connection
@@ -93,51 +92,21 @@ def plotTemp():
     fetchTimeData()
     fetchHumidData()
 
-    #x = [dt.datetime.strptime(y,'%d/%m/%y %H:%M:%S').date() for y in xdates]
-    #print(x)
-    plt.clf()
-    plt.cla()
-    plt.close()
-    plt.figure(figsize=(20,10))
-    #x = np.array([dt.datetime(i[], i[3:4], i[0:1], i,0) for i in xdates])
-    x = np.array([dt.datetime(2013, 9, 28, i) for i in  range(len(xdates))])
-    #plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%d/%M/%Y %H:%M:%S'))
-    #plt.gca().xaxis.set_major_locator(mdates.MinuteLocator())
+    # split uup date data in even manner
+    x = np.array([dt.datetime(int(xdates[i][6:8]), int(xdates[0][3:5]), int(xdates[i][0:2]),int(xdates[i][9:11]),i ) for i in  range(len(xdates))])
 
-    #x =[1,2,3,4,5,6,7,8]
-    print(len(x))
-    print(x)
-    y = [2,5,3,6,2,1,6,2]
-    z = [4,2,1,5,6,2,1,3]
+    # plot the graph
+    plt.figure(figsize=(20,10))
     plt.grid()
     plt.plot(x,ytemps,'r-o',label = "temperature(C)")
-    #start, end = plt.gca().get_xlim()
-    #plt.gca().xaxis.set_ticks(np.arange(start, end, 5))
-    #plt.plot( x,yhumids,'g-',label ="humidity(%)")
-    #plt.gcf().autofmt_xdate()
+    plt.plot(x,yhumids,'g-*',label ="humidity(%)")
     plt.legend(loc='upper right')
     plt.ylabel('Value')
     plt.xlabel('Date Time')
-    plt.savefig('static/temp.png')
+    plt.savefig('static/dataGraph.png')
     
-    return render_template('temp.html', temp = "static/temp.png")
-
-# define route of showing humidity graph
-# @app.route("/humid")
-# def plotHumid():
-#     # fetch latest data
-#     fetchTempData()
-#     fetchHumidData()
-#     z =[1,2,3,4,5,6,7,8]
-#     plt.figure()
-#     plt.plot(z,yhumids,marker='o')
-#     #plt.gcf().autofmt_xdate()
-#     plt.ylabel('Humidity (%)')
-#     plt.xlabel('Date Time')
-#     plt.savefig('static/humid.png')
-#     return render_template('humid.html', humid = "static/humid.png")
+    return render_template('index.html', data = "static/dataGraph.png")
     
-
 host = os.popen('hostname -I').read()
 #port set to a non privileged port above 1024
 app.run(host='192.168.1.12', port=5000, debug=False)

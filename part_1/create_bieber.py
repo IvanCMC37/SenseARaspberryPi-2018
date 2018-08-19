@@ -6,6 +6,6 @@ import sys
 con = lite.connect('/home/pi/SenseARaspberryPi/db/database.bieber')
 
 with con: 
-    cur = con.cursor() 
-    cur.execute("DROP TABLE IF EXISTS SENSEHAT_data")
-    cur.execute("CREATE TABLE SENSEHAT_data(timestamp DATETIME, temp REAL, humidity REAL)")
+    curs= con.cursor() 
+    curs.execute("DROP TABLE IF EXISTS SENSEHAT_data")
+    curs.execute("CREATE TABLE SENSEHAT_data(timestamp DATETIME, temp REAL, humidity REAL)")

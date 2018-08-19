@@ -5,8 +5,9 @@ from crontab import CronTab
 cron = CronTab(user='pi')
 cron.remove_all()
 
-#add new cron job
+# job of sensing temperature and humidity
 job_1  = cron.new(command='/home/pi/SenseARaspberryPi/part_1/partOne.py')
+# job of pushBullet
 job_2 = cron.new(command='/home/pi/SenseARaspberryPi/part_2/partTwo.py')
 
 #job settings
