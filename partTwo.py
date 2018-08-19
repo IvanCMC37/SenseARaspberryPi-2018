@@ -3,7 +3,8 @@ from sense_hat import SenseHat
 import requests
 import json
 import os
-print("you started the script2")
+
+print("Assignment part two started...")
 #Referencing from tute 4 - pushBullet example
 ACCESS_TOKENS = [["o.UPqDVIbmvEuNmjQiNg0IAVkFdFINeB34","Ivan"]]
 ACCESS_TOKENS.append(["o.814RKndb4upm5YdPrgIvLb6tm2WWxSpO","David"])
@@ -44,9 +45,10 @@ def pushBullet_broadcaster():
                             headers={'Authorization': 'Bearer ' + x[0], 
                             'Content-Type': 'application/json'})
             if resp.status_code != 200:
-                raise Exception('Sending to {} failed'.format(x[1]))
+                raise Exception('Failed to reach {}.'.format(x[1]))
             else:
-                print('complete sending to {}'.format(x[1]))
+                print('Sent message to {}'.format(x[1]))
+        print("All message(s) has been sent.")
 
 #main function
 def main():
