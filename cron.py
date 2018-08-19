@@ -6,8 +6,8 @@ cron = CronTab(user='pi')
 cron.remove_all()
 
 #add new cron job
-job_1  = cron.new(command='/home/pi/SenseARaspberryPi/partOne.py')
-job_2 = cron.new(command='/home/pi/SenseARaspberryPi/partTwo.py')
+job_1  = cron.new(command='/home/pi/SenseARaspberryPi/part_1/partOne.py')
+job_2 = cron.new(command='/home/pi/SenseARaspberryPi/part_2/partTwo.py')
 
 #job settings
 job_1.minute.every(1)

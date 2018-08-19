@@ -6,7 +6,7 @@ import time
 from sense_hat import SenseHat
 
 # database details
-dbname='/home/pi/SenseARaspberryPi/known_devices.db'
+dbname='/home/pi/SenseARaspberryPi/db/known_devices.db'
 
 # log device data on database
 def logData (name, device_name, mac_address):	
@@ -73,7 +73,6 @@ def checkDuplication(user_name, device_name,input_address):
     if(checkTotalRow()==0):
         print("Database is empty, adding first row...")
         logData(user_name, device_name, input_address)
-        displayData()
 
     # print database content if the database is not empty
     if(checkTotalRow()>0):    

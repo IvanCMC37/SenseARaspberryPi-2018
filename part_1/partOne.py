@@ -16,7 +16,7 @@ def get_cpu_temp():
   return(t)
 
 # Writing to Database
-dbname='/home/pi/SenseARaspberryPi/database.bieber'
+dbname='/home/pi/SenseARaspberryPi/db/database.bieber'
 sampleFreq = 1 # time in seconds
 
 # get data from SenseHat sensor
