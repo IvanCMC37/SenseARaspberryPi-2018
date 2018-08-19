@@ -17,7 +17,7 @@ def get_cpu_temp():
 
 # Writing to Database
 # Table is datetime , temp , humidity
-dbname='/home/pi/SenseARaspberryPi/database.bieber'
+dbname='/home/pi/SenseARaspberryPi/db/database.bieber'
 sampleFreq = 1 # time in seconds
 
 # get data from SenseHat sensor
@@ -60,7 +60,6 @@ def main():
     sense = SenseHat()
     red = (255, 0, 0)
     sense.clear(red)  # passing in an RGB tuple
-    
 
     for i in range (0,3):
         getSenseHatData()

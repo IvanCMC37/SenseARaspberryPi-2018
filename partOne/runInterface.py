@@ -7,15 +7,15 @@ matplotlib.use('Agg')
 from matplotlib import pyplot as plt 
 import base64, io
 
-app = Flask(__name__, template_folder='templates')
+app = Flask(__name__, template_folder='../views')
 
 @app.route("/")
 def plotGraph():
 
-    plt.plot([1, 2, 3, 4])
+    plt.plot([22, 5, 7, 4])
     plt.ylabel('some numbers')
-    plt.savefig('static/graph.png')
-    return render_template('index.html', url = 'static/graph.png')
+    plt.savefig('../static/graph.png')
+    return render_template('index.html', url = '../static/graph.png')
 
 host = os.popen('hostname -I').read()
 #port set to a non privileged port above 1024
