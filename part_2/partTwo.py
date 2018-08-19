@@ -24,20 +24,16 @@ def get_cpu_temp():
   t = float(res.replace("temp=","").replace("'C\n",""))
   return(t)
 
-#fetch cpu temp
-cpu_temp = get_cpu_temp()
-
-#calculating the real temp
-temp = senor_temp - (cpu_temp -senor_temp)/2
-
-#for debugging
-print(temp)
-body = "Hey "+ACCESS_TOKENS[0][1]+", time to get your jacket!!! It's "+str(round(temp,1))+"*C outside."
-print(body)
-
 #function to decide whether broadcast the message or not
 def pushBullet_broadcaster():
-    if temp <30:
+    #fetch cpu temp
+    cpu_temp = get_cpu_temp()
+
+    #calculating the *real* temp
+    temp = senor_temp - (cpu_temp -senor_temp)/2
+
+    # send message when temperature is below 25
+    if temp <25:
         for x in ACCESS_TOKENS:
             body = "Hey "+x[1]+", time to get your jacket!!! It's "+str(round(temp,1))+"*C outside."
             data_send = {"type": "note", "title": Name_OF_PI, "body": body}

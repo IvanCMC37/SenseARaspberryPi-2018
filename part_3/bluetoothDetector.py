@@ -27,7 +27,7 @@ def displayData():
 
     # fetch all data from table
     for x in curs.execute("SELECT * FROM ADDRESS_data"):
-        #extracting mac_address object
+        # extracting mac_address object
         s = str(x)
 
         # string formatting
@@ -35,9 +35,11 @@ def displayData():
         name = a[2:len(a)-1]
         device_name = b[2:len(b)-1]
         mac_address = c[2:len(c)-2]
+
+        # print the formatted string
         print('{:20}{:20}{:20}'.format(name,device_name,mac_address))
 
-    #close connection
+    # close connection
     conn.close()
 
 # function to check total row of the database table
