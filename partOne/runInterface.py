@@ -11,11 +11,10 @@ app = Flask(__name__, template_folder='../views')
 
 @app.route("/")
 def plotGraph():
-
-    plt.plot([22, 5, 7, 4])
+    plt.plot([1, 2, 88, 23])
     plt.ylabel('some numbers')
     plt.savefig('../static/graph.png')
-    return render_template('index.html', url = '../static/graph.png')
+    return render_template('/index.html', url = "../static/graph.png")
 
 host = os.popen('hostname -I').read()
 #port set to a non privileged port above 1024
