@@ -24,29 +24,35 @@ def displayData():
 
     print ("\nDatabase content as following...\n")
     print('{:20}{:20}{:20}'.format("name","device_name","mac_address"))
+
+    # fetch all data from table
     for x in curs.execute("SELECT * FROM ADDRESS_data"):
-        #extracting mac_address object
+        # extracting mac_address object
         s = str(x)
-        mac_address = s[2:len(s)-3]
 
         # string formatting
         a,b,c = s.split(",")
         name = a[2:len(a)-1]
         device_name = b[2:len(b)-1]
         mac_address = c[2:len(c)-2]
+
+        # print the formatted string
         print('{:20}{:20}{:20}'.format(name,device_name,mac_address))
 
-    #close connection
+    # close connection
     conn.close()
 
 # function to check total row of the database table
 def checkTotalRow():
+    # setting up connection
     conn=lite.connect(dbname)
     curs=conn.cursor()
 
+    # get row count on the table
     row_count = curs.execute("SELECT COUNT(*) FROM ADDRESS_data")
     value = row_count.fetchone()
 
+    # close database connection
     conn.close()
     return value[0]
 
