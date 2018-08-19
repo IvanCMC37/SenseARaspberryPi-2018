@@ -4,6 +4,7 @@ import sys
 
 #create database for storing known devices
 con = lite.connect('/home/pi/SenseARaspberryPi/db/known_devices.db')
+
 with con: 
     cur = con.cursor() 
     cur.execute("DROP TABLE IF EXISTS ADDRESS_data")
