@@ -34,7 +34,7 @@ def getSenseHatData():
     if temp_calibrated is not None and humidity is not None:
         temp_calibrated = round(temp_calibrated, 2)
         humidity = round(humidity, 2)
-        time = datetime.now().strftime("%D")
+        time = datetime.now().strftime("%d%m%y")
         logData (temp_calibrated, humidity, time)
 
 # log sensor data on database
