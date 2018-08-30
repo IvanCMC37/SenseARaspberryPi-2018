@@ -5,9 +5,9 @@
 __Contributors:__ `David B, Ivan C`
 
 ### i. Test Humidity every few milliseconds
-* Setup bieber database<br>
+* Setup database<br>
 * Setup cronjob<br>
-* Insert into bieber database<br>
+* Insert data into database<br>
 * Represent data using a web interface
 
 ### ii. Push Notifications
